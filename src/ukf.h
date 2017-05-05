@@ -108,6 +108,10 @@ public:
    * @param meas_package The measurement at k+1
    */
   void UpdateRadar(MeasurementPackage meas_package);
+
+  void PredictMeasurement(VectorXd *z_pred, MatrixXd *S, MatrixXd Zsig, int n_z);
+
+  MatrixXd CalculateKalmanGain(MatrixXd Zsig, VectorXd z_pred, MatrixXd S, int n_z);
 };
 
 #endif /* UKF_H */
